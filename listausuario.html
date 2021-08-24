@@ -28,12 +28,46 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="usuario.html">Home</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Usuários
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="usuario.html">Usuário Logado</a></li>
+                                <li><a class="dropdown-item" href="novousuario.html">Criar usuário</a></li>
+                                <li><a class="dropdown-item" href="listausuario.html">Listar usuário</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="login.html">Trocar usuário</a></li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="novousuario.html">Novo Usuário</a>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Provedora
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="provedora.html">Visualizar</a></li>
+                                <li><a class="dropdown-item" href="novaprovedora.html">Criar provedora</a></li>
+
+                            </ul>
                         </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Série
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="serie.html">Visualizar</a></li>
+                                <li><a class="dropdown-item" href="novaserie.html">Criar série</a></li>
+
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link active" href="login.html">Fazer login</a>
                         </li>
