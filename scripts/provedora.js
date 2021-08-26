@@ -48,7 +48,7 @@ function salvar(){
     var provedora = {
         "nome" : document.getElementById("txtNome").value,
         "data" : document.getElementById("txtData").value,
-        "site" : document.getElementById("txtSite").value,
+        "site" : document.getElementById("txtSite").value
     };
 
     var request = {
@@ -68,4 +68,45 @@ function salvar(){
         window.alert('Falha ao cadastrar a provedora!');
     })
 
+}
+
+function filtrar(){
+    var nomefiltro = document.getElementById("txtNome").value;
+
+    var url = "http://localhost:8080/provedoras/filter";
+
+    if(nomefiltro != null){
+        url += "?nome=" + nomefiltro;
+    }
+
+    var request = {
+        method: "GET"
+    }
+
+    fetch(url, request)
+    .then(response => response.json())
+    .then(response =>  montarTabelaProvedoras(response))
+    .catch(err => {
+        window.alert('A sua pesquisa não retornou nada!');
+        limparTabelaProvedoras();
+    })   
+}
+
+
+function limparTabelaProvedoras(){
+    var saida = 
+        "<table class='table table-striped table-hover'>" + 
+        "   <thead class='thead-dark'><tr>" + 
+        "       <th scope='col'>Id</th>" + 
+        "       <th scope='col'>Fundação</th>" + 
+        "       <th scope='col'>Nome</th>" + 
+        "       <th scope='col'>Site</th>" + 
+        "   </tr></thead>" + 
+        "   <tbody>";
+    
+
+
+    saida += "  </tbody></table>";
+
+    document.getElementById("dados").innerHTML = saida;
 }

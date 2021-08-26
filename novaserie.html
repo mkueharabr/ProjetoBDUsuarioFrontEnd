@@ -86,15 +86,27 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="addon-wrapping">Gênero</span>
                 </div>
-                <input type="text" id="txGenero" class="form-control" placeholder="Digite o gênero">
+                <input type="text" id="txtGenero" class="form-control" placeholder="Digite o gênero">
             </div>
 
             <div class="input-group flex-nowrap m-2">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="addon-wrapping">Lançamento</span>
                 </div>
-                <input type="text" id="txtLancamento" class="form-control" placeholder="Lançamento">
-                
+
+                <div class="form-check form-check-inline m-2">
+                    <input class="form-check-input" value = "false" type="radio" name="txtLancamento" id="txtLancamento1">
+                    <label class="form-check-label" for="txtLancamento1">
+                        Não
+                    </label>
+                </div>
+                <div class="form-check form-check-inline m-2">
+                    <input class="form-check-input" value = "true" type="radio" name="txtLancamento" id="txtLancamento2" checked>
+                    <label class="form-check-label" for="txtLancamento2">
+                        Sim
+                    </label>
+                </div>
+
             </div>
 
             <div class="input-group flex-nowrap m-2">
@@ -111,16 +123,14 @@
                 <input type="text" id="txtTitulo" class="form-control" placeholder="Digite o título">
             </div>
 
-            <div class="input-group flex-nowrap m-2">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="addon-wrapping">Provedora</span>
-                </div>
-                <select id="txtProvedora" class="custom-select" placeholder="Digite a Provedora">
-                    </select>
 
+            <div class="input-group mb-3 m-2">
+                <label class="input-group-text" for="txtProvedora">Provedora</label>
+                <select id="txtProvedora" class="custom-select" placeholder="Digite a Provedora">
+                </select>
             </div>
 
-            <button type="button" class="btn btn-primary m-2" id="novaProvedora" onclick="salvar()">Salvar</button>
+            <button type="button" class="btn btn-primary m-2" id="novaSerie" onclick="salvar()">Salvar</button>
 
         </div>
 

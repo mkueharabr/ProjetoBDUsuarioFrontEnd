@@ -25,6 +25,7 @@ function montarTabelaSeries(series){
         "       <th scope='col'>Sinopse</th>" + 
         "       <th scope='col'>Título</th>" + 
         "       <th scope='col'>Provedora</th>" + 
+        "       <th scope='col'>Ação</th>" + 
         "   </tr></thead>" + 
         "   <tbody>";
     
@@ -37,6 +38,7 @@ function montarTabelaSeries(series){
             "           <td>" + series[cont].sinopse + "</td>" + 
             "           <td>" + series[cont].titulo + "</td>" + 
             "           <td>" + series[cont].provedora.nome + "</td>" + 
+            "           <td> <button type='button' class='btn btn-danger' onclick='excluir(" + series[cont].id + ")'><i class='bi bi-trash'></i></button></td>"
             "       </tr>" ;
 
     }
@@ -51,11 +53,17 @@ function montarTabelaSeries(series){
 function salvar(){
     var url = "http://localhost:8080/novaserie";
 
+    console.log('titulo: ' + document.getElementById("txtTitulo").value);
+    console.log('genero: ' + document.getElementById("txtGenero").value);
+    console.log('sinopse: ' + document.getElementById("txtSinopse").value);
+    console.log('lancamento: ' + document.querySelector('input[name="txtLancamento"]:checked').value);
+    console.log('provedora: ' + document.getElementById("txtProvedora").value);
+
     var serie = {
         "titulo" : document.getElementById("txtTitulo").value,
         "genero" : document.getElementById("txtGenero").value,
         "sinopse" : document.getElementById("txtSinopse").value,
-        "lancamento" : document.getElementById("txtLancamento").value,
+        "lancamento" :document.querySelector('input[name="txtLancamento"]:checked').value,
         "provedora" : {
             "id" : document.getElementById("txtProvedora").value
         }
@@ -71,7 +79,7 @@ function salvar(){
     }
 
     fetch(url, request)
-    .then(res => res.json())
+    .then(response => response.json())
     .then(response =>{
         window.alert('Série cadastro com sucesso. Id criado: ' + response.id);
     })
@@ -109,3 +117,24 @@ function preencherCombo(provedores){
     document.getElementById("txtProvedora").innerHTML = saida;
 }
 
+
+function excluir(id){
+    var resposta = window.confirm("Você realmente deseja excluir a série? " + id);
+
+    if(resposta == true){
+        var url = "http://localhost:8080/serie/" + id;
+    
+    
+        var request = {
+            method: "DELETE"
+        }
+    
+        fetch(url, request)   
+        .then(response =>  carregarSeries())
+        .catch(err => {
+            window.alert('Erro ao excluir uma série!');
+        })  
+
+    }
+}
+    
