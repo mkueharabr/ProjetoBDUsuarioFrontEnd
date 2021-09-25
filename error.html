@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/heroes/">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="./style/css/estilo.css" />
+    
+
+    <title>Conectar!ME</title>
+</head>
+
+<body onload="carregarUsuario()">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top cor__fundo">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="home.html">
+                    <img src="https://img.icons8.com/fluency/48/000000/people-working-together.png" />
+                    Conectar!<span class="cor__texto__destaque">ME</span>
+
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Consumidores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="usuario.html">Usuário Logado</a></li>
+                                <li><a class="dropdown-item" href="novousuario.html">Criar usuário</a></li>
+                                <li><a class="dropdown-item" href="listausuario.html">Listar usuário</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="login.html">Trocar usuário</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Microempreendedores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="provedora.html">Visualizar</a></li>
+                                <li><a class="dropdown-item" href="novaprovedora.html">Criar provedora</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Investidores
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="serie.html">Visualizar</a></li>
+                                <li><a class="dropdown-item" href="novaserie.html">Criar série</a></li>
+
+                            </ul>
+                        </li>
+
+                        <div class="col-md-3 text-end mx-4">
+                            <a class="btn botao__menu" href="login.html" aria-current="page">Sair</a>
+                            <a class="btn botao__menu" href="login.html" aria-current="page">Login</a>
+                        </div>
+
+
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="b-example-divider"></div>
+
+    <main class="flex-shrink-0">
+        <div class="container px-4 pt-5 my-5 text-center border-bottom cor__fundo__branco">
+            <h1 class="display-4 fw-bold cor__texto__destaque">Ooopppss!</h1>
+            <div class="col-lg-6 mx-auto">
+                <p class="lead my-4">Algo não saiu como previsto. Pode ser que estamos com algum tipo de problema. Ou, em alguns casos, você pode ter digitado o nome da página errado.</p>
+                <p class="lead my-4">Caso seja nosso problema, por favor, aguarde um momento e tente novamente. Caso o problema persista, entre em contato conosco.</p>
+                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+                    <a href="home.html"><button class="w-100 btn btn-lg botao__carrousel"
+                            type="submit">Ir para Home</button></a>
+                </div>
+            </div>
+            <div class="overflow-hidden" style="max-height: 40vh;">
+                <div class="container px-5">
+                    <img src="./image/error.jpg" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image"
+                        width="700" height="500" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </main>
+    
+
+    <div class="b-example-divider"></div>
+
+     <!-- FOOTER -->
+     <footer class="cor__rodape text-white px-4 py-5 text-center">
+         <p class="float-end"><a href="#">Voltar ao topo</a></p>
+         <p>&copy; 2021 Conectar!ME Ltda &middot; <a href="#">Privacidade</a> &middot; <a href="#">Termos</a></p>
+     </footer>
+
+
+    <script type="text/javascript" src="./scripts/usuario.js">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

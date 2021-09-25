@@ -1,0 +1,83 @@
+<header class="d-flex justify-content-center py-1">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top cor__fundo">
+        <div class="container">
+            <a class="navbar-brand" href="home.html">
+                <img src="https://img.icons8.com/fluency/48/000000/people-working-together.png" />
+                Conectar!<span class="cor__texto__destaque">ME</span>
+
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Consumidores
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="usuario.html">Usuário Logado</a></li>
+                            <li><a class="dropdown-item" href="novousuario.html">Criar usuário</a></li>
+                            <li><a class="dropdown-item" href="localizador.html">Localizar Serviço</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="login.html">Trocar usuário</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Microempreendedores
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="provedora.html">Visualizar</a></li>
+                            <li><a class="dropdown-item" href="novaprovedora.html">Criar provedora</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Investidores
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="./dashboard.html">Dashboard</a></li>
+                            <li><a class="dropdown-item" href="novaserie.html">Criar série</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <div class="d-flex align-items-center mx-5">
+
+
+                        <div class="flex-shrink-0 dropdown ">
+                            <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle"
+                                id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img id="fotoUsuario" alt="mdo" width="32" height="32" class="rounded-circle"
+                                    src="./image/usuario.png">
+                            </a>
+                            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
+                                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                <li><a class="dropdown-item" href="login.html">Logar</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item icone" onclick="deslogar()">Sair</a></li>
+                            </ul>
+                        </div>
+                        <div id="nomeUsuarioLogado" class="mx-2 pt-2 cor__texto__destaque"></div>
+
+                    </div>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap');
+
+.cartao{
+    font-family: 'Ubuntu',
+    sans-serif;
+}
+
+.cartao__titulo{
+    background-color: #047BBE;
+    color: #fff;
+    font-size: 1.0rem;
+    font-weight: 600;
+    margin: 3px;
+    text-align: center;
+
+}
+
+
+.cartao__valor{
+    font-family: 'Lato',
+    sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin: 10px;
+}
+
+.combo__selecao{
+    font-weight: 700;
+    color:#047BBE;
+}
+
+.cartao__rodape{
+    font-family: 'Lato',
+    sans-serif;
+    background-color: #DBE9F5;
+    height: 100%;
+    padding: 5px;
+}
+
+.kpi__muitoBaixo{
+    color:#850101;
+    font-size: 20px;
+}
+
+.kpi__baixo{
+    color: #FF8800;
+    font-size: 20px;
+}
+
+.kpi__medio{
+    color:#FFDD22;
+    font-size: 20px;
+}
+
+.kpi__alto{
+    color: #46A701;
+    font-size: 20px;
+}
+
+.kpi__muitoAlto{
+    color: #0000F9;
+    font-size: 20px;
+}

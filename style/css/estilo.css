@@ -1,19 +1,162 @@
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.b-example-divider {
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+}
+
+
+
+@media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+}
+
+html,
+body {
+    height: 100%;
+}
+
+.geral {
+    min-height: 100%;
+    position: relative;
+
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+main>.container {
+    padding: 35px 15px 0;
+}
 
 .logo-container {
-    background-color: #47bcff;
+    background-color: #047BBE;
     color: #FFF;
 }
 
+
 .logo {
-    font-family: 'Handlee', cursive;
+    font-family: 'Ubuntu',
+    sans-serif;
     font-size: 2.5rem;
 }
 
+body {
+    font-family: 'Roboto',
+    sans-serif;
+}
+
+h1,h2,h3 {
+    font-family: 'Ubuntu', sans-serif;
+    
+}
+
 .cor__fundo {
-    background-color: blueviolet;
+    background-color:#047BBE;
+}
+
+.cor__fundo__branco{
+    background-color: #FFF;
+}
+
+.cor__rodape{
+    background-color: #072C63;
+    
 }
 
 .img__maximoAltura {
     max-height: 30vh;
+}
+
+.cor__texto__destaque{
+    color: #13C2EB
+}
+
+.cor__fundo__destaque {
+    background: #DBE9F5
+}
+
+.cor__texto__principal{
+    color:#047BBE;
+}
+
+.cor__fundo__input{
+    background-color: #047BBE;
+
+}
+
+.cor__texto__carrousel{
+    color: white;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+.botao__carrousel {
+    padding: 15px 25px;
+    margin: 10px;
+    color: white;
+    background-color: #047BBE;
+    text-decoration-color: #072C63;
+}
+
+.botao__carrousel:hover {
+    color: white;
+    background-color: #13C2EB;
+    border-color: #FFF;
+    text-transform: uppercase;
+
+}
+
+
+.botao__menu{
+    width: 70px;
+    padding: 5 15px;
+    margin: 0px 5px;
+    color: white;
+    background-color: #072C63;
+    text-decoration-color: #047BBE;
+}
+
+.botao__menu:hover {
+    text-transform: uppercase;
+    color: white;
+    background-color: #13C2EB;
+    border-color: #FFF;
+
+}
+
+
+.botao {
+    color: white;
+    background-color: #047BBE;
+    text-decoration-color: #072C63;
+}
+
+.botao:hover {
+    color: white;
+    background-color: #13C2EB;
+    border-color: #FFF;
+    text-transform: uppercase;
+
+}
+
+.icone{
+    cursor: pointer;
 }
