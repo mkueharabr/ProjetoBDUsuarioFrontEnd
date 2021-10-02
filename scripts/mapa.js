@@ -76,13 +76,17 @@ function geocode(request) {
       marker.setPosition(results[0].geometry.location);
       marker.setMap(map);
       responseDiv.style.display = "block";
-      response.innerText = JSON.stringify(result, null, 2);
+      //response.innerText = JSON.stringify(result, null, 2);
+      const resultado = document.querySelector("#resultadoMapa");
+      resultado.innerHTML =  JSON.stringify(result, null, 2);
+
+
       console.log(results);
       console.log('Endereço: ' + results[0].address_components[0].long_name);
       console.log('Bairro: ' + results[0].address_components[1].long_name);
       console.log('Cidade: ' + results[0].address_components[2].short_name);
       console.log('UF: ' + results[0].address_components[3].short_name);
-      console.log('Pais: ' + results[0].address_components[1].long_name);
+      console.log('Pais: ' + results[0].address_components[4].long_name);
        console.log('CEP: ' + results[0].address_components[5].short_name);
        console.log('Latitude: ' + results[0].geometry.location.lat());
        console.log('Longitude: ' + results[0].geometry.location.lng());

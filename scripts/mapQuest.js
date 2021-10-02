@@ -2,7 +2,7 @@ const encuentrame = () => {
     //todo o processo de localização
 
     const success = (position) => {
-        const divCoordenadas = document.getElementById("coordenadas");
+       
         const divMapa = document.getElementById("mapa");
         console.log(position);
         const { latitude , longitude } = position.coords;

@@ -6,13 +6,19 @@
     <title>Geocoding Service</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <link rel="stylesheet" type="text/css" href="./style/css/googleMaps.css" />
-    <script src="./scripts/mapa.js"></script>
+    
 </head>
 
 <body>
     <div id="map"></div>
 
+    <div class="container">
+        <div id="resultadoMapa"></div>
+    </div>
+    
+
     <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+    <script src="./scripts/mapa.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDeFVWel5RQUB5yAiRXkDxQg6Fw_x7sCb0&callback=initMap&v=weekly"
         async></script>

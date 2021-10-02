@@ -88,7 +88,6 @@ function pesquisar() {
 
     var url = "http://localhost:8080/indiceMunicipio/" + ufSelect.value;
 
-
     var request = {
         method: "GET"
     }
@@ -100,8 +99,6 @@ function pesquisar() {
             window.alert('Falha ao carregar as UFs!');
         })
 }
-
-
 
 
 function carregarIndiceMunicipio(indice) {
@@ -127,14 +124,18 @@ function carregarIndiceMunicipio(indice) {
         maximumFractionDigits: 0
     };
 
+    // ********************** Daodos do CENSO
+
+    let densidade = indice.censo2010Populacao/indice.areaMunicipio;
     document.querySelector("#areaMunicipio").innerHTML = indice.areaMunicipio.toLocaleString(codigoLocal, numero2dec);
     document.querySelector("#censoEstimativaPopulacao").innerHTML =
         indice.censoPopulacaoEstimada.toLocaleString(codigoLocal, numeroInt) + " (" + indice.censoAnoEstimativa + ")";
     document.querySelector("#censoPopulacao").innerHTML = indice.censo2010Populacao.toLocaleString(codigoLocal, numeroInt) + " (2010)";
-    document.querySelector("#censoDensidadePopulacao").innerHTML = indice.censo2010DensidadeAprox.toLocaleString(codigoLocal, numero2dec);
+    document.querySelector("#censoDensidadePopulacao").innerHTML = densidade.toLocaleString(codigoLocal, numero2dec) + " (2010)";
 
     console.log('Católica: ' + indice.censo2010ReligiaoCatApostolicoRomano);
 
+    // ********************** Monta gráfico Religião
     var religiao = [
         ['Religião', 'Pessoas'],
         ['Católica', indice.censo2010ReligiaoCatApostolicoRomano],
@@ -143,12 +144,15 @@ function carregarIndiceMunicipio(indice) {
         ['Outros', indice.censo2010ReligiaoSemOuNaoDeclarada]
     ];
 
-
     graficoReligiao(religiao);
 
+    // ********************** Monta Mapa do Municípo: nome do município e população estimada
     var dadosMunicipio = [
         ['Município', 'População'],
-        [indice.municipio + ', ' + indice.microrregiaoMesorregiaoUfNome + ', Brasil', indice.municipio + ': ' + indice.censoPopulacaoEstimada]
+        [indice.municipio + ', ' + 
+         indice.microrregiaoMesorregiaoUfNome + 
+         ', Brasil', indice.municipio + ': ' 
+         + indice.censoPopulacaoEstimada.toLocaleString(codigoLocal, numeroInt) + " (" + indice.censoAnoEstimativa + ")"]
 
     ];
 
@@ -157,30 +161,40 @@ function carregarIndiceMunicipio(indice) {
     console.log('população estimada: ' + indice.municipio + ': ' + indice.censoPopulacaoEstimada)
 
 
-    // Educação
+    // ********************** Educação
     document.querySelector("#idebAnosIniciais").innerHTML = indice.idebAnosIniciais.toLocaleString(codigoLocal, numero2dec) +
         ' (' + indice.idebAno + ')';
     document.querySelector("#idebAnosFinais").innerHTML = indice.idebAnosFinais.toLocaleString(codigoLocal, numero2dec) +
         ' (' + indice.idebAno + ')';
 
-    // idhm
-    document.querySelector('#idhmPosicaoGeral').innerHTML = indice.idhMunicipioPosicaoGeral + '&ordm;' + ' (' + indice.idhMunicipioAno + ')';
-    document.querySelector('#idhmNotaGeral').innerHTML = indice.idhMunicipioIdhmGeral.toLocaleString(codigoLocal, numero3dec); + ' (' + indice.idhMunicipioAno + ')';
+    // ********************** idhm
+    // Posição geral do municipio
+    document.querySelector('#idhmPosicaoGeral').innerHTML = indice.idhMunicipioPosicaoGeral + '&ordm;';
+    document.querySelector('#idhmPosGeral').innerHTML = 'Fonte (' + indice.idhMunicipioAno + '): IBGE, PNDU Brasil, Ipea e FIPE.';
+    
+    // nota IDHM
+    document.querySelector('#idhmNotaGeral').innerHTML =  kpiIdhm("#idhUFRodape", indice.idhMunicipioIdhmGeral) + '  ' +
+                    indice.idhMunicipioIdhmGeral.toLocaleString(codigoLocal, numero3dec);
 
-    kpiIdhm("#idhmRodape", indice.idhMunicipioIdhmGeral);
+    document.querySelector('#idhmRodape').innerHTML =  'Fonte (' + indice.idhMunicipioAno + '): IBGE, PNDU Brasil, Ipea e FIPE.'                
 
+    //kpiIdhm("#idhmRodape", indice.idhMunicipioIdhmGeral);
 
-    document.querySelector('#idhmPosicaoGeralUF').innerHTML = indice.idhUfPosicaoGeral + '&ordm;' + ' (' + indice.idhUfAno + ')';
-    document.querySelector('#idhmNotaGeralUF').innerHTML = indice.idhUfIdhmGeral.toLocaleString(codigoLocal, numero3dec) + ' (' + indice.idhUfAno + ')';
+    // IDH Posicao geral do UF
+    document.querySelector('#idhmPosicaoGeralUF').innerHTML = indice.idhUfPosicaoGeral + '&ordm;';
+    document.querySelector('#idhmPosGeralUF').innerHTML = 'Fonte (' + indice.idhMunicipioAno + '): IBGE, PNDU Brasil, Ipea e FIPE.';  
 
-    kpiIdhm("#idhUFRodape", indice.idhUfIdhmGeral);
+    // IDH Nota Geral da UF
+    document.querySelector('#idhmNotaGeralUF').innerHTML = kpiIdhm("#idhmNotaGeralUF", indice.idhUfIdhmGeral) + '  ' +
+                indice.idhUfIdhmGeral.toLocaleString(codigoLocal, numero3dec);
 
+    document.querySelector('#idhUFRodape').innerHTML =  'Fonte (' + indice.idhMunicipioAno + '): IBGE, PNDU Brasil, Ipea e FIPE.' 
 
-    // PIB
+    // ********************** PIB
     document.querySelector('#pibPerCapita').innerHTML = indice.pibValorPibPerCapita.toLocaleString(codigoLocal, numero2dec) +
         ' (' + indice.pibAno + ')';
 
-    // cce - empresas
+    // ********************** cce - empresas
     document.querySelector('#empresaLocal').innerHTML = indice.cceUnidadesLocais.toLocaleString(codigoLocal, numeroInt) +
         ' (' + indice.pibAno + ')';
 
@@ -197,7 +211,7 @@ function carregarIndiceMunicipio(indice) {
         ' (x1000) R$';
 
 
-    // dados do municipio
+    // ********************** Tabela Características do municipio
     let dadosArray = [
         ['Nome Microrregião', indice.microrregiaoNome],
         ['Nome Messorregião', indice.microrregiaoMesorregiaoNome],
@@ -215,37 +229,43 @@ function carregarIndiceMunicipio(indice) {
 
 }
 
-
+// ********************** KPI do IDHM: baseado na classificação do PNDU
 function kpiIdhm(objeto, valor) {
     let icone = "";
 
     if (valor < 0.5) {
-        icone = "<i class='bi bi-arrow-down-square-fill kpi__muitoBaixo lead'></i> Muito Baixo";
+        // Abaixo de 0.5: Muito Baixo
+        icone = "<i class='bi bi-arrow-down-square-fill kpi__muitoBaixo lead'></i>";
 
     } else if (valor >= 0.5 && valor < 0.6) {
-        icone = "<i class='bi bi-arrow-down-left-square-fill kpi__baixo lead'></i> Baixo";
+        // >= 0.5 e < 0.6: Baixo
+        icone = "<i class='bi bi-arrow-down-left-square-fill kpi__baixo lead'></i>";
 
     } else if (valor >= 0.6 && valor < 0.7) {
-        icone = "<i class='bi bi-arrow-left-square-fill kpi__medio lead'></i> Medio";
+        // >= 0.6 e < 0.7: Medio
+        icone = "<i class='bi bi-arrow-left-square-fill kpi__medio lead'></i>";
 
     } else if (valor >= 0.7 && valor < 0.8) {
-
-        icone = "<i class='bi bi-arrow-up-left-square-fill kpi__alto lead'></i> Alto";
+        // >= 0.7 e < 0.8: Alto
+        icone = "<i class='bi bi-arrow-up-left-square-fill kpi__alto lead'></i>";
 
     } else {
-        icone = "<i class='bi bi-arrow-up-square-fill kpi__muitoAlto lead'></i> Muito Alto";
+        // >= 0.8: Muito alto
+        icone = "<i class='bi bi-arrow-up-square-fill kpi__muitoAlto lead'></i>";
 
     }
 
-    document.querySelector(objeto).innerHTML = icone;
+    //document.querySelector(objeto).innerHTML = icone;
+    return icone;
 }
 
 
+// Chama a API do google Maps
 google.charts.load('current', {
     'packages': ['Map'],
     // Note: you will need to get a mapsApiKey for your project.
     // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-    'mapsApiKey': 'AIzaSyDeFVWel5RQUB5yAiRXkDxQg6Fw_x7sCb0',
+    'mapsApiKey': 'AIzaSyBaLikKe2ixjOobAJf_89Tl7vNCVtEC_5g',
     'language': 'pt-br',
     callback: graficoMapa
 
@@ -271,7 +291,6 @@ function graficoMapa(arrMapa) {
         zoomLevel: 9,
 
     };
-
   
     var map = new google.visualization.Map(document.getElementById('mapaMunicipio'));
     map.draw(dataMapa, options);
@@ -279,7 +298,7 @@ function graficoMapa(arrMapa) {
 }
 
 
-
+// chama a API do Google Charts
 google.charts.load("current", {
     packages: ["corechart"],
     'language': 'pt-br',
@@ -295,7 +314,6 @@ function graficoReligiao(arrReligiao) {
             ['Católica', 1]
         ];
     }
-
 
     var data = google.visualization.arrayToDataTable(arrReligiao);
 
